@@ -113,4 +113,8 @@ set autochdir
 " Show wild menu for tab completion in command mode
 set wildmenu
 
+" Fix colorscheme in tmux
+set background=dark
+set t_Co=256
+
 set runtimepath^=~/.vim/pack/vendor/start/ctrlp.vim 
