@@ -124,6 +124,9 @@ call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'itchyny/lightline.vim'
+Plug 'edkolev/tmuxline.vim'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " NERDTree settings
@@ -151,3 +154,17 @@ inoremap <silent><expr> <Tab>
       \ coc#refresh()
 inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+
+" lightline.vim settings
+let g:lightline = {
+  \ 'colorscheme': 'onedark',
+  \ }
+
+" Color Scheme
+colorscheme onedark
+
+" Disable the built-in status line
+set noshowmode
+
+" fix color scheme in iterm2
+set termguicolors
