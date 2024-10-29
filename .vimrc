@@ -128,7 +128,6 @@ set termguicolors
 
 " vim-plug settings
 call plug#begin()
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'itchyny/lightline.vim'
@@ -136,6 +135,8 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'preservim/nerdcommenter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " NERDTree settings
