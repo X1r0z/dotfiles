@@ -98,6 +98,8 @@ set tabstop=4
 set smartindent
 " Enable auto indent based on filetype
 filetype indent on
+" Enable plugin on filetype
+filetype plugin on
 " Automatically indent the next line
 set wrap
 
@@ -133,6 +135,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'voldikss/vim-floaterm'
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
 " NERDTree settings
@@ -168,6 +171,16 @@ let g:lightline = {
 
 " vim-floaterm settings
 let g:floaterm_keymap_toggle = '<Leader>ft'
+
+" nerdcommenter settings
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
 
 " Color Scheme
 colorscheme onedark
