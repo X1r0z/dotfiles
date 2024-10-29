@@ -25,6 +25,9 @@ syntax on
 " Show line numbers.
 set number
 
+" Disable the built-in status line.
+set noshowmode
+
 " This enables relative line numbering mode. With both number and
 " relativenumber enabled, the current line shows the true line number, while
 " all other lines (above and below) are numbered relative to the current line.
@@ -57,7 +60,7 @@ set smartcase
 
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
-" Highlight the search results
+" Highlight the search results.
 set hlsearch
 
 " Unbind some useless/annoying default key bindings.
@@ -81,10 +84,10 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
 " ...and in insert mode
-inoremap <Left>  <ESC>:echoe "Use h"<CR>
-inoremap <Right> <ESC>:echoe "Use l"<CR>
-inoremap <Up>    <ESC>:echoe "Use k"<CR>
-inoremap <Down>  <ESC>:echoe "Use j"<CR>
+" inoremap <Left>  <ESC>:echoe "Use h"<CR>
+" inoremap <Right> <ESC>:echoe "Use l"<CR>
+" inoremap <Up>    <ESC>:echoe "Use k"<CR>
+" inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 " Expand tab to 4 spaces
 set softtabstop=-1
@@ -118,6 +121,8 @@ set wildmenu
 " Fix colorscheme in tmux
 set background=dark
 set t_Co=256
+" Fix colorscheme in iTerm2
+set termguicolors
 
 " vim-plug settings
 call plug#begin()
@@ -127,6 +132,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'itchyny/lightline.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'joshdick/onedark.vim'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 " NERDTree settings
@@ -160,11 +166,8 @@ let g:lightline = {
   \ 'colorscheme': 'onedark',
   \ }
 
+" vim-floaterm settings
+let g:floaterm_keymap_toggle = '<Leader>ft'
+
 " Color Scheme
 colorscheme onedark
-
-" Disable the built-in status line
-set noshowmode
-
-" fix color scheme in iterm2
-set termguicolors
