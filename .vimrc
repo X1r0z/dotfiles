@@ -115,6 +115,10 @@ set autochdir
 " Show wild menu for tab completion in command mode
 set wildmenu
 
+" Fix colorscheme in tmux
+set background=dark
+set t_Co=256
+
 " vim-plug settings
 call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'
