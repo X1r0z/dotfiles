@@ -1,11 +1,5 @@
-#!/bin/sh
+#!/bin/bash
 
-mkdir -p ~/.vim/pack/plugins/start
-
-# ctrlp.vim
-git clone --depth=1 https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/pack/plugins/start/ctrlp
-
-# NERDTree
-git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
-vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
-
+# vim-plug for vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

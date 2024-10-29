@@ -20,7 +20,7 @@ set nocompatible
 syntax on
 
 " Disable the default Vim startup message.
-set shortmess+=I
+"set shortmess+=I
 
 " Show line numbers.
 set number
@@ -102,6 +102,8 @@ set wrap
 set ruler
 " Highlight the cursor line
 set cursorline
+" Disable GUI cursor
+set guicursor=
 
 " Automatically hightlight the matched brackets
 set showmatch
@@ -113,8 +115,29 @@ set autochdir
 " Show wild menu for tab completion in command mode
 set wildmenu
 
-" Fix colorscheme in tmux
-set background=dark
-set t_Co=256
+" vim-plug settings
+call plug#begin()
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
 
-set runtimepath^=~/.vim/pack/vendor/start/ctrlp.vim 
+" use <cr> to confirm completion
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() : "\<C-g>u\<CR>"
+
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
