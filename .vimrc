@@ -94,8 +94,10 @@ set softtabstop=-1
 set shiftwidth=4
 set tabstop=4
 
-" Enable smart indent
+" Enable indent
+set autoindent
 set smartindent
+set cindent
 " Enable auto indent based on filetype
 filetype indent on
 " Enable plugin on filetype
@@ -137,6 +139,8 @@ Plug 'voldikss/vim-floaterm'
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'LunarWatcher/auto-pairs'
+Plug 'Vimjas/vim-python-pep8-indent'
 call plug#end()
 
 " NERDTree settings
@@ -182,6 +186,11 @@ let g:NERDDefaultAlign = 'left'
 
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+" auto-pairs settings
+" Whether or not to map backspace
+let g:AutoPairsMapBS = 1
+let g:AutoPairsMultilineBackspace = 1
 
 " Color Scheme
 colorscheme onedark
