@@ -111,6 +111,12 @@ set ruler
 set cursorline
 " Disable GUI cursor
 set guicursor=
+" Change cursor style to 'blinking underline'
+let &t_SI="\e[3 q"
+let &t_EI="\e[3 q"
+let &t_SR = "\e[3 q"
+let &t_ti .= "\e[3 q"
+let &t_te .= "\e[3 q"
 
 " Automatically hightlight the matched brackets
 set showmatch
