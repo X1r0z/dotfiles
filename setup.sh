@@ -25,7 +25,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     sudo apt install fzf bat ripgrep silversearcher-ag perl universal-ctags
     # config bat theme
     mkdir -p ~/.config/bat/config
-    echo '--theme "OneHalfDark" >> ~/.config/bat/config'
+    echo '--theme "OneHalfDark"' >> ~/.config/bat/config
     # alias batcat to bat
     mkdir -p ~/.local/bin
     ln -s /usr/bin/batcat ~/.local/bin/bat
